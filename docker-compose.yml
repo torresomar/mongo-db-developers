@@ -11,6 +11,6 @@ web:
 db:
   image: mongo
   volumes: 
-    - ./data:/var/lib/mongodb
+    - ./data:/data/db
   ports:
     - "29017:27017"
