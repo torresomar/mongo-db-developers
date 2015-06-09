@@ -1,10 +1,16 @@
 web:
   build: .
+  working_dir: /app
+  command: python hello_bottle.py
+  volumes: 
+    - ./app:/app
   links:
     - db
   ports:
     - "8000:8000"
 db:
   image: mongo
+  volumes: 
+    - ./data:/var/lib/mongodb
   ports:
-    - "27017:27017"
+    - "29017:27017"
