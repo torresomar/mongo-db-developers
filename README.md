@@ -8,3 +8,9 @@ Add hw1-2.py code into a bottle route or open python console and run with normal
 ***
 Homework 1.3
 Add hw1-3.py code into a bottle route.
+
+### Homework Chapter 2
+***
+Homework 2.1
+Download JSON from Handouts
+mongoimport --host localhost:[forwarded_port] -d students -c grades < [path_to_file]
