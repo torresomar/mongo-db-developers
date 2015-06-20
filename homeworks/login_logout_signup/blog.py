@@ -190,7 +190,7 @@ def validate_signup(username, password, verify, email, errors):
             return False
     return True
 
-connection_string = "mongodb://localhost"
+connection_string = "mongodb://localhost:29017"
 connection = pymongo.MongoClient(connection_string)
 database = connection.blog
 
