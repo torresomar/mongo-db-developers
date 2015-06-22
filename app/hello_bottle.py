@@ -67,5 +67,13 @@ def homework_1_3(n):
         return "HEE"
         print "Error trying to read collection:", type(e), e
 
+@bottle.route('/homeworks/2.2')
+def homework_2_2():
+    db_add = os.environ['DB_1_PORT_27017_TCP_ADDR']
+    connection = pymongo.MongoClient(db_add, 27017)
+    db = connection.students
+    collection = db.grades
+
+
 bottle.debug(True)
 bottle.run(host='0.0.0.0', port=8000)
