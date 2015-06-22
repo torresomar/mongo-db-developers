@@ -52,10 +52,13 @@ class BlogPostDAO:
                 "comments": [],
                 "date": datetime.datetime.utcnow()}
 
+        print post
         # now insert the post
         try:
             # XXX HW 3.2 Work Here to insert the post
+            posts.insert_one(post)
             print "Inserting the post"
+
         except:
             print "Error inserting post"
             print "Unexpected error:", sys.exc_info()[0]
@@ -68,6 +71,7 @@ class BlogPostDAO:
         cursor = []         # Placeholder so blog compiles before you make your changes
 
         # XXX HW 3.2 Work here to get the posts
+        cursor = self.posts.find()
 
         l = []
 
@@ -91,7 +95,7 @@ class BlogPostDAO:
 
         post = None
         # XXX Work here to retrieve the specified post
-
+        post = self.posts.find_one({"permalink":permalink})
         if post is not None:
             # fix up date
             post['date'] = post['date'].strftime("%A, %B %d %Y at %I:%M%p")
