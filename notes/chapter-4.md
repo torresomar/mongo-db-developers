@@ -32,6 +32,51 @@ The index must take into account multikey values.
 
 Multikey and DotNotation
 
-Index Creation Sparse
+###### Index Creation Sparse
 
 This allows creating indexes in a collection for documents that may or may not have certain fields declared. Only the documents with the indexed field will be indexed. If you issue a sort within the indexed parse field it will run a full collection scan since the database will fallback to that method.
+
+###### Index Creation Background
+
+In Mongo we have two index creation queues.
+
+- Foreground
+- Background
+
+In case we are using a Foreground Indexing:
+
+- Faster
+- Blocks Writes & Reads in DB
+
+In case we are using a Background Indexing:
+
+- Slower
+- Does not block W&R in DB
+
+Note: If we want to index a collection without affecting its performance we can use Replcia Sets. Run the Foreground Indexing one by one and stop request to given Replica Set.
+
+###### Explain
+
+Explain 2.0
+
+db.foo.find().explain() => Old
+
+db.foo.explain():
+- find
+- update
+- remove
+- aggregate
+
+###### Covered Queries
+
+Sometimes queries can be covered with the indexing options Mongo offers. These type of queries are known as covered queries.
+
+###### Geospatial Indexes
+
+´´´´javascript
+var x = 19.0202002, y = 21.9299303;
+var myDocSchema = {
+  "nameOfField": [x,y]
+}
+ensureIndex({"nameOfField": '2d'});
+´´´´
