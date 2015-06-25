@@ -13,4 +13,4 @@ db:
   volumes: 
     - ./data:/data/db
   ports:
-    - "29017:27017"
+    - "27017:27017"

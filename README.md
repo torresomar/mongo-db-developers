@@ -14,3 +14,14 @@ Add hw1-3.py code into a bottle route.
 Homework 2.1
 Download JSON from Handouts
 mongoimport --host localhost:[forwarded_port] -d students -c grades < [path_to_file]
+
+### Homework Chapter 4
+
+Homework 4.3
+
+```javascript
+db.posts.createIndex({"date":-1});
+db.posts.createIndex({"permalink":1});
+db.posts.createIndex({"tags":1, "date":-1});
+```
+
