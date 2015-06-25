@@ -22,4 +22,14 @@ Pluggable Storage Engines
 
 [__100 GB __] 
 
+###### Indexes
+
+Indexes will have a B-Tree or B+Tree structure depending on the engine.
+
+If an index is not present within the collection the query will have to visit each document to perfomr the query.
+
+The index must take into account multikey values.
+
+Multikey and DotNotation
+
 
