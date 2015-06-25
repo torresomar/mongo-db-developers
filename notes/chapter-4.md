@@ -32,4 +32,6 @@ The index must take into account multikey values.
 
 Multikey and DotNotation
 
+Index Creation Sparse
 
+This allows creating indexes in a collection for documents that may or may not have certain fields declared. Only the documents with the indexed field will be indexed. If you issue a sort within the indexed parse field it will run a full collection scan since the database will fallback to that method.
