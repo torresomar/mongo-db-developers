@@ -104,3 +104,8 @@ db.places.find({
   }
 });
 ```
+###### Full Text Search Index
+
+```javascript
+db.sentences.ensureIndex({"words":"text"});
+```
