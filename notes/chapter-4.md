@@ -73,12 +73,12 @@ Sometimes queries can be covered with the indexing options Mongo offers. These t
 
 ###### Geospatial Indexes
 
-´´´´javascript
-
+```javascript
 var x = 19.0202002, y = 21.9299303;
 var myDocSchema = {
   "nameOfField": [x,y]
 }
 ensureIndex({"nameOfField": '2d'});
-
-´´´´
+// Query example
+db.collection.find({nameOfField:{$near: [x,y]}});
+```
