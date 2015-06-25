@@ -73,12 +73,34 @@ Sometimes queries can be covered with the indexing options Mongo offers. These t
 
 ###### Geospatial Indexes
 
+Cartesian Style
 ```javascript
-var x = 19.0202002, y = 21.9299303;
+var x = 19, y = 21;
 var myDocSchema = {
   "nameOfField": [x,y]
 }
 ensureIndex({"nameOfField": '2d'});
 // Query example
 db.collection.find({nameOfField:{$near: [x,y]}});
+```
+
+###### Geospatial Spherical
+
+Latitude and Longitude
+
+GeoJSON => geojson.org
+
+```javascript
+db.places.ensureIndex({"nameOfField": "2dsphere"});
+db.places.find({
+  location:{
+    $near:{
+      $geometry:{
+        type: "Point",
+        coordinates: [lat,lng],
+        $maxDistance: distance
+      }
+    }
+  }
+});
 ```
