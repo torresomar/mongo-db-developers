@@ -25,3 +25,12 @@ db.posts.createIndex({"permalink":1});
 db.posts.createIndex({"tags":1, "date":-1});
 ```
 
+Homework 4.4
+
+```bash
+mongoimport -d m101 -c profile < json_file.json
+```
+
+```javascript
+
+```
