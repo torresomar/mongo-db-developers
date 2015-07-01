@@ -42,3 +42,24 @@ We have to add a compound _id
   }
 }
 ```
+
+Note: _id field within MongoDB can be either a scalar or a document
+
+##### Agregation Expressions
+
+- $sum 
+- $avg
+- $min
+- $max
+- $push => Create an array that will be filled by a condition
+- $addtoset => Will create a similar array but with unique elements, hence set
+- $first
+- $last
+
+##### Sum Expression
+```javascript
+{
+  _id: { "maker":"$manufacterer"},
+  sum_prices: {$sum:"$price"}
+}
+```
