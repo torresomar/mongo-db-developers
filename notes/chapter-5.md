@@ -26,3 +26,19 @@ db.products.aggregate([
 - $out => Redirect output 1:1
 - $redact => Security
 - $geonear => Documents based in location
+
+##### Compound grouping
+
+We have to add a compound _id
+
+```javascript
+{
+  _id: { // We can group by many fields...
+    "manufacterer":"$manufacterer",
+    "category":"$category"
+  },
+  num_products: {
+    $sum:1
+  }
+}
+```
