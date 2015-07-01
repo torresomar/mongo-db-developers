@@ -63,3 +63,5 @@ Note: _id field within MongoDB can be either a scalar or a document
   sum_prices: {$sum:"$price"}
 }
 ```
+
+###### $group-stages
