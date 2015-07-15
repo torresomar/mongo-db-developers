@@ -91,3 +91,58 @@ db.fun.aggregate([{
 { "_id" : 6, "a" : 1, "b" : 1, "c" : 87 }
 { "_id" : 7, "a" : 1, "b" : 1, "c" : 97 } //
 ```
+
+```javascript
+//Using $match
+db.zips.aggregate([
+  {$match:
+    {
+      state: "CA"
+    }
+  },
+  {$group:
+    {
+      _id: "$city",
+      population: {$sum: "$pop"},
+      zip_codes: {$addToSet: "$_id"}
+    }
+  }]);
+```
+
+Text Search 
+
+```javascript
+//Using $text
+db.senetences.aggregate([
+  {$match:
+    {
+      $text:{
+        $search: "my strings to search"
+      }
+    }
+  }]);
+// We can include weights in text search, just add the next to the staging
+// It is important that the $sort stage must be done after the $match since this stage is the only one that has the textScore index.
+  {$sort:
+    {
+      score:{
+        $meta: "textScore"
+      }
+    }
+  }
+```
+
+Sort
+
+
+
+
+
+
+
+
+
+
+
+
+
